@@ -10,11 +10,10 @@ import static org.mockito.Mockito.verify;
 public class MemberTest {
 
     @Test
-    public void TestAddGender(String gender){
-            Member member=mock(Member.class);
-            member.setGender(gender);
-            verify(member).setGender(gender);
-            assertThat(member.getGender(),is(gender));
+    public void testAddGender(){
+            Member member=new Member();
+            member.setGender("female");
+            assertThat(member.getGender(),is("female"));
     }
-
+    
 }
