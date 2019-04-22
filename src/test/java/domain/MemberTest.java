@@ -1,8 +1,20 @@
 package domain;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class MemberTest {
+
+    // 나이 설정시, 유효값이 아닐 때 예외상황으로 잘 처리 되는지 테스트
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetAgeException() {
+        Member member = new Member();
+        member.setAge(-2);
+        assertThat(member.getAge(), is(-2));
+    }
 }
