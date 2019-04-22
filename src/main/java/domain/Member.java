@@ -15,8 +15,7 @@ public class Member {
             throw new IllegalArgumentException();
         else this.age = age;
     }
-
-    public void updateAge() {
+    public void addAge() {
         this.age++;
     }
 }

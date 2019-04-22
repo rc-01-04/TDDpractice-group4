@@ -28,4 +28,16 @@ public class MemberTest {
         member.setCellphoneNumber("01011112222");
         assertThat(member.getCellphoneNumber(), is("01011112222"));
     }
+
+    // 나이를 한 살 추가했을때, 잘 변경되는지 테스트
+    @Test
+    public void testAddAge() {
+        Member member = new Member();
+
+        int age = 5;
+        member.setAge(age);
+        assertThat(member.getAge(), is(age));
+        member.addAge();
+        assertThat(member.getAge(), is(age+1));
+    }
 }
