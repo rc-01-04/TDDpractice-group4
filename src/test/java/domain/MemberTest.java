@@ -15,5 +15,12 @@ public class MemberTest {
             member.setGender("female");
             assertThat(member.getGender(),is("female"));
     }
-    
+
+    @Test
+    public void testAddPhoneNumber(){
+        Member member=new Member();
+        member.setCellphoneNumber("01055551111");
+        assertThat(member.getCellphoneNumber(),is("01055551111"));
+    }
+
 }
