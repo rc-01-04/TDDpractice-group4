@@ -17,7 +17,7 @@ public class MemberTest {
     }
 
     @Test
-    public void testAddPhoneNumber(){
+    public void testAddsetCellphoneNumber(){
         Member member=new Member();
         member.setCellphoneNumber("01055551111");
         assertThat(member.getCellphoneNumber(),is("01055551111"));
