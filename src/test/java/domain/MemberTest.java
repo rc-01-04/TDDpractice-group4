@@ -24,7 +24,7 @@ public class MemberTest {
     }
 
     @Test
-    public void testAddAge(){
+    public void testAddsetAge(){
         Member member=new Member();
         member.setAge(25);
         assertThat(member.getAge(),is(25));
