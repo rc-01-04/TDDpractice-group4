@@ -23,4 +23,11 @@ public class MemberTest {
         assertThat(member.getCellphoneNumber(),is("01055551111"));
     }
 
+    @Test
+    public void testAddAge(){
+        Member member=new Member();
+        member.setAge(25);
+        assertThat(member.getAge(),is(25));
+    }
+
 }
