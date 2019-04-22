@@ -25,5 +25,14 @@ public class MemberTest {
     @InjectMocks
     private MockService mockService;
 
-   
+    @Test
+    public void findNameAndGender(){
+        Member member = new Member("양명우", "male", "0107338676", 24);
+        List<Member> memberList = new ArrayList<Member>();
+        memberList.add(member);
+
+        when(mockService.findByName("양명우")).thenReturn(memberList.get(0));
+        String memberGender = mockService.findByName("양명우").getGender();
+        assertThat(memberGender, is("male"));
+    }
 }
