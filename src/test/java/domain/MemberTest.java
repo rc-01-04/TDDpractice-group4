@@ -4,11 +4,35 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.hamcrest.core.Is.is;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MemberTest {
+
+    @Test
+    public void testSetGender(){
+            Member member=new Member();
+            member.setGender("female");
+            assertThat(member.getGender(),is("female"));
+    }
+
+    @Test
+    public void testSetCellphoneNumber(){
+        Member member=new Member();
+        member.setCellphoneNumber("01055551111");
+        assertThat(member.getCellphoneNumber(),is("01055551111"));
+    }
+
+    @Test
+    public void testSetAge(){
+        Member member=new Member();
+        member.setAge(25);
+        assertThat(member.getAge(),is(25));
+    }
 
     // 나이 설정시, 유효값이 아닐 때 예외상황으로 잘 처리 되는지 테스트
     @Test(expected = IllegalArgumentException.class)
