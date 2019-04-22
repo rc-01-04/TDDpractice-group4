@@ -17,4 +17,15 @@ public class MemberTest {
         member.setAge(-2);
         assertThat(member.getAge(), is(-2));
     }
+
+    // 휴대폰 번호를 변경했을 때, 잘 변경되는지 테스트
+    @Test
+    public void testChangePhoneNumber() {
+        Member member = new Member();
+        member.setCellphoneNumber("01012345678");
+        assertThat(member.getCellphoneNumber(), is("01012345678"));
+
+        member.setCellphoneNumber("01011112222");
+        assertThat(member.getCellphoneNumber(), is("01011112222"));
+    }
 }
