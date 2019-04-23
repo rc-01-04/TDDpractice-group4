@@ -12,7 +12,7 @@ import service.MockService;
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.when;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
