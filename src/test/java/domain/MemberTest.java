@@ -10,11 +10,11 @@ import repository.MockRepository;
 import service.MockService;
 
 import java.util.ArrayList;
+
 import static org.mockito.Mockito.when;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MemberTest {
@@ -25,7 +25,33 @@ public class MemberTest {
     private MockService mockService;
     // ------------ 명우 ------------ //
     @Test
-    public void findNameAndGender(){
+    public void TestGetName(){
+        Member member = mock(Member.class);
+        when(member.getName()).thenReturn("전승민");
+        assertThat(member.getName(), is("전승민"));
+    }
+
+    @Test
+    public void TestGetGender(){
+        Member member = mock(Member.class);
+        when(member.getGender()).thenReturn("male");
+        assertThat(member.getGender(), is("male"));
+    }
+    @Test
+    public void TestGetPhoneNumber(){
+        Member member = mock(Member.class);
+        when(member.getCellphoneNumber()).thenReturn("01073396678");
+        assertThat(member.getCellphoneNumber(), is("01073396678"));
+    }
+    @Test
+    public void TestGetAge(){
+        Member member = mock(Member.class);
+        when(member.getAge()).thenReturn(24);
+        assertEquals(member.getAge(), 25);
+    }
+
+    @Test
+    public void TestfindNameAndGender(){
         Member member = new Member("양명우", "male", "0107338676", 24);
         List<Member> memberList = new ArrayList<Member>();
         memberList.add(member);
