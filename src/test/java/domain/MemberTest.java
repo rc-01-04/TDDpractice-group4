@@ -119,5 +119,45 @@ public class MemberTest {
         member.addAge();
         assertThat(member.getAge(), is(age+1));
     }
-    // 
+    //
+
+    // ------------ 재홍 ------------ //
+    // 특정 멤버의 이름을 받으면 임의의 정보를 설정하고, 설정한 정보가 맞는지 확인
+    @Test
+    public void searchNameTest(){
+        when(mockService.findByName("배재홍")).thenReturn(new Member("배재홍","male","010-0000-0005",23));
+        Member member = mockService.findByName("배재홍");
+        assertThat(member.getAge(), is(23));
+        assertThat(member.getName(), is("배재홍"));
+        assertThat(member.getCellphoneNumber(),is("010-0000-0005"));
+        assertThat(member.getGender(),is("male"));
+    }
+    // 성별 입력이 남,여가 아닌 다른 내용이 들어 왔을때 에러가 발생하는지 확인
+    @Test(expected = IllegalArgumentException.class)
+    public void inputgenderTest(){
+        Member member = new Member();
+        member.setGender("배재홍");
+        assertThat(member.getGender(), is("배재홍"));
+    }
+
+    //여러명의 멤버를 받고 , 해당 멤버를 찾으면 제대로 찾아지는지 확인
+    @Test
+    public void searchListNameTest(){
+
+        Member member = new Member("배재홍","male","010-1111-1112",23);
+        Member member1 = new Member("권현송","female","010-1123-4856",25);
+        Member member2 = new Member("전승민","male","010-4444-4111",20);
+        Member member3 = new Member("양명우","male","0235-12313-55",25);
+
+        mockService.addMember(member);
+        mockService.addMember(member1);
+        mockService.addMember(member2);
+        mockService.addMember(member3);
+
+        when(mockService.findByName("배재홍")).thenReturn(member);
+        assertThat(member.getName(),is("배재홍"));
+
+
+    }
+
 }
